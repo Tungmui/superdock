@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "http://rsd.ganghang.sbnet.xyz",
+    "secure": false
+  }
+}
