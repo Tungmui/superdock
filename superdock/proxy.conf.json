@@ -1,6 +1,9 @@
 {
   "/api": {
     "target": "http://rsd.ganghang.sbnet.xyz",
-    "secure": false
+    "secure": false,
+    "pathRewrite": {
+      "/api": ""
+    }
   }
 }

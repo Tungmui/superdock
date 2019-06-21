@@ -19,10 +19,10 @@ export default {
     weather: 'https://weather.sb.im/get'
   },
   config: {
-    "server": "/samples",
+    "server": "http://rsd.ganghang.sbnet.xyz/",
     "client_id": "c9e773cf248b00af3a7561b5f105816b905ebbe5c56f47ebbb81de66743a3122",
     "client_secret": "f62b30384cb82ba78d15ea68d13881b7a18866df75f15f79bec1df428eab5b32",
-    "suffix": ".json",
+    "suffix": "",
     "lang": "zh",
     "GMAP_API_KEY": "AIzaSyB4ReiTkBq7bw1sFd0EgnO55WnGWQ46MZI",
     "CY_API_TOKEN": "Lczn9EiN0OBoG4dw",

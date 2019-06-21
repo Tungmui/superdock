@@ -15,7 +15,7 @@ export class BasicInterceptor implements HttpInterceptor {
     let ok: string;
     let secureReq: any = req.clone({
       headers: req.headers.set("Authorization", localStorage.getItem("token")), //设置请求头
-      url: "http://rsd.ganghang.sbnet.xyz" + req.url
+      url: req.url.slice(0, 4) == "/api" ? "http://rsd.ganghang.sbnet.xyz" + req.url.slice(4) : req.url
     })
     console.log(secureReq);
     return next.handle(secureReq).pipe(

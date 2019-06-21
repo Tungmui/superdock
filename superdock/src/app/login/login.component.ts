@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
       this.validateForm.controls[i].updateValueAndValidity();
     }
     if (this.validateForm.invalid == false) {
-      this.http.post("/oauth/token",
+      this.http.post("/api/oauth/token",
         {
           client_id: API.config.client_id,
           client_secret: API.config.client_secret,
@@ -30,15 +30,17 @@ export class LoginComponent implements OnInit {
           console.log(response);
           if (response.access_token) {
             const token = response.token_type + " " + response.access_token;
-            localStorage.setItem("token", token);
+            localStorage.setItem("token", token); debugger;
             //获取菜单栏
             let url = API.config.suffix !== '' ? API.local["plans"] + API.config.suffix : API.local["plans"];
+            url = "/api" + url;
             this.http.get(url).subscribe((menuData: any) => {
               console.log(menuData);
               localStorage.setItem("plans", JSON.stringify(menuData));
             })
 
             let urlNodes = API.config.suffix !== '' ? API.local["nodes"] + API.config.suffix : API.local["nodes"];
+            urlNodes = "/api" + urlNodes;
             this.http.get(urlNodes).subscribe((menuData: any) => {
               console.log(menuData);
               localStorage.setItem("nodes", JSON.stringify(menuData));
@@ -53,7 +55,7 @@ export class LoginComponent implements OnInit {
               localStorage.setItem("nodeMessage", JSON.stringify(nodeMessage));
             })
 
-            this.http.get(API.local.user).subscribe((data: any) => {
+            this.http.get("/api" + API.local.user).subscribe((data: any) => {
               console.log(data);
               localStorage.setItem("userInfo", JSON.stringify(data));
             });
