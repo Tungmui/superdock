@@ -14,6 +14,8 @@ import { BasicInterceptor } from './login/basic-interceptor';
 import { HomeComponent } from './home/home.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { PlanViewComponent } from './plan-view/plan-view.component';
+import { RouterModule } from '@angular/router';
 registerLocaleData(zh);
 
 // AoT requires an exported function for factories
@@ -26,6 +28,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     LoginComponent,
     HomeComponent,
+    PlanViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     HttpClientModule,
     NgZorroAntdModule,
+    RouterModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

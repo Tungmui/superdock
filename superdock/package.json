@@ -23,6 +23,7 @@
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "core-js": "^2.5.4",
+    "flv.js": "^1.5.0",
     "ng-zorro-antd": "^1.8.1",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"

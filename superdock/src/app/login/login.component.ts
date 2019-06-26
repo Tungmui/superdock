@@ -29,8 +29,9 @@ export class LoginComponent implements OnInit {
         }).subscribe((response: any) => {
           console.log(response);
           if (response.access_token) {
+            localStorage.clear();
             const token = response.token_type + " " + response.access_token;
-            localStorage.setItem("token", token); debugger;
+            localStorage.setItem("token", token);
             //获取菜单栏
             let url = API.config.suffix !== '' ? API.local["plans"] + API.config.suffix : API.local["plans"];
             url = "/api" + url;

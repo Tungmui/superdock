@@ -4,3 +4,41 @@
 </ul>
 <h3>{{userInfo.email}}</h3>
 <h3>{{userInfo.updated_at}}</h3>
+
+<!-- side -->
+<div style="width: 240px;">
+  <button nz-button [nzType]="'primary'" (click)="toggleCollapsed()" style="margin-bottom: 10px;">
+    <i nz-icon [type]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+  </button>
+  <ul nz-menu [nzMode]="'inline'" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
+    <li nz-submenu>
+      <span title>
+        <i nz-icon type="appstore"></i>
+        <span>任务管理</span>
+      </span>
+      <ul>
+        <li [routerLink]="['./planView',item.id]" nz-menu-item *ngFor="let item of plans">{{item.name}}</li>
+      </ul>
+    </li>
+
+    <li nz-submenu>
+      <span title>
+        <i nz-icon type="appstore"></i>
+        <span>机场</span>
+      </span>
+      <ul>
+        <li *ngFor="let depot of depotNodes()" nz-menu-item>{{depot.name}}</li>
+      </ul>
+    </li>
+    <li nz-submenu>
+      <span title>
+        <i nz-icon type="setting"></i>
+        <span>无人机</span>
+      </span>
+      <ul>
+        <li *ngFor="let air of airNodes()" nz-menu-item>{{air.name}}</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<router-outlet></router-outlet>

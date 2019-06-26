@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import API from "../../API.js";
 
 @Component({
   selector: 'app-home',
@@ -9,12 +11,29 @@ import { TranslateService } from '@ngx-translate/core';
 export class HomeComponent implements OnInit {
 
   constructor(
-    private translate: TranslateService
+    private translate: TranslateService,
+    private http: HttpClient
   ) { }
+
+  isCollapsed = false;
+
+  toggleCollapsed(): void {
+    this.isCollapsed = !this.isCollapsed;
+  }
+
   nodeStatus: any[] = JSON.parse(localStorage.getItem("nodeStatus"));
   nodes: any[] = JSON.parse(localStorage.getItem("nodes"));
   userInfo: any = JSON.parse(localStorage.getItem("userInfo"));
+  plans: any[] = JSON.parse(localStorage.getItem("plans"));
   ngOnInit() {
+    //获取菜单栏
+    let url = API.config.suffix !== '' ? API.local["plans"] + API.config.suffix : API.local["plans"];
+    url = "/api" + url;
+    this.http.get(url).subscribe((menuData: any) => {
+      console.log(menuData);
+      localStorage.setItem("plans", JSON.stringify(menuData));
+      this.plans = menuData;
+    })
     const StatusIcon = {
       0: 'el-icon-success',
       1: 'el-icon-info',
@@ -45,5 +64,12 @@ export class HomeComponent implements OnInit {
       case 2: return 'net_error';
       default: return 'never_online';
     }
+  }
+
+  depotNodes() {
+    return this.nodes.filter(node => node.type_name === 'depot');
+  }
+  airNodes() {
+    return this.nodes.filter(node => node.type_name === 'air');
   }
 }
