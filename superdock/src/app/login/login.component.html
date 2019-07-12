@@ -6,7 +6,7 @@
     <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
       <nz-form-item>
         <nz-form-control>
-          <nz-input-group [nzPrefix]="prefixUser">
+          <nz-input-group nzSize="large" [nzPrefix]="prefixUser">
             <input type="text" nz-input formControlName="userName" placeholder="Username" />
           </nz-input-group>
           <nz-form-explain *ngIf="validateForm.get('userName')?.dirty && validateForm.get('userName')?.errors">Please
@@ -16,7 +16,7 @@
       </nz-form-item>
       <nz-form-item>
         <nz-form-control>
-          <nz-input-group [nzPrefix]="prefixLock">
+          <nz-input-group nzSize="large" [nzPrefix]="prefixLock">
             <input type="password" nz-input formControlName="password" placeholder="Password" />
           </nz-input-group>
           <nz-form-explain *ngIf="validateForm.get('password')?.dirty && validateForm.get('password')?.errors">Please
@@ -26,12 +26,8 @@
       </nz-form-item>
       <nz-form-item>
         <nz-form-control>
-          <button nz-button class="login-form-button" [nzType]="'primary'">Log in</button>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-control>
-          <label>忘记密码 <i class="anticon anticon-right"></i></label>
+          <button nzSize="large" nz-button class="login-form-button" [nzType]="'primary'">Log in</button>
+          <a class="forgot-password">忘记密码 <i class="anticon anticon-right"></i></a>
         </nz-form-control>
       </nz-form-item>
 

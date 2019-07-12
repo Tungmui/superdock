@@ -17,6 +17,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PlanViewComponent } from './plan-view/plan-view.component';
 import { RouterModule } from '@angular/router';
 import { SpdDropdownComponent } from './spd-dropdown/spd-dropdown.component';
+import { NavComponent } from './nav/nav.component';
+import { MenuComponent } from './menu/menu.component';
 registerLocaleData(zh);
 
 // AoT requires an exported function for factories
@@ -31,6 +33,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     PlanViewComponent,
     SpdDropdownComponent,
+    NavComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,

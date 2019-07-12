@@ -1,0 +1,66 @@
+nav{
+  padding:0 5px;
+  background-color: #171722;
+  color:white;
+  border-bottom: 1px solid #707070;
+  .btn-menu{
+    font-size: 30px;
+    line-height: 60px;
+    padding: 0 20px;
+    color:white;
+  }
+  .nav-right{
+    float: right;
+    nz-dropdown{
+      display: inline-block;
+      vertical-align: middle;
+      padding:0 15px;
+      height: 40px;
+    }
+    .anticon-setting,
+    .anticon-bell{
+      font-size: 30px;
+      height: 60px;
+      vertical-align: middle;
+      line-height: 60px;
+      padding:0 30px;
+      position: relative;
+    }
+    .anticon-setting{
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+    }
+    nz-badge{
+      position: absolute;
+      top:6px;
+      right:22px;
+    }
+    .user{
+      width:200px;
+      display: block;
+      img{
+        display:block;
+        float: left;
+        width:40px;
+        height:40px;
+        margin-right: 10px;
+        border-radius: 5px;
+      }
+      .text{
+        display: block;
+        overflow: auto;
+        line-height: 20px;
+        color:white;
+        strong{
+          display: inline-block;
+          font-size: 14px;
+          display: block;
+        }
+        span{
+          display: inline-block;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

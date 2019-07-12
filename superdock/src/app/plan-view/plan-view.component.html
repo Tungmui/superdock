@@ -42,7 +42,7 @@
   <nz-form-item>
     <nz-form-label [nzSm]="6" [nzXs]="24">download</nz-form-label>
     <nz-form-control [nzSm]="14" [nzXs]="24">
-      <button [disabled]="!plan.map_path" (click)="handleMapDownload()" nz-button nzType="primary">download</button>
+      <button [disabled]="!plan?.map_path" (click)="handleMapDownload()" nz-button nzType="primary">download</button>
     </nz-form-control>
   </nz-form-item>
 </form>

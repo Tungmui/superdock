@@ -1,0 +1,31 @@
+<nav class="clearfix">
+  <a class="btn-menu" (click)="toggleCollapsed()">
+    <i nz-icon [type]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+  </a>
+
+  <div class="nav-right">
+
+    <i class="anticon anticon-bell">
+      <nz-badge [nzCount]="5"></nz-badge>
+    </i>
+
+    <i class="anticon anticon-setting"></i>
+    <nz-dropdown>
+      <a nz-dropdown class="clearfix">
+        <span class="user">
+          <img src="assets/image/user-img.jpg" alt="">
+          <span class="text">
+            <strong>张三</strong>
+            <span>工程部部分主管</span>
+          </span>
+        </span>
+        <i nz-icon nzType="down"></i>
+      </a>
+      <ul nz-menu nzSelectable>
+        <li nz-menu-item>
+          <a>log out</a>
+        </li>
+      </ul>
+    </nz-dropdown>
+  </div>
+</nav>

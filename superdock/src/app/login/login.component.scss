@@ -28,12 +28,35 @@
       float: left;
     }
     .login-form {
-      padding:80px 50px;
+      padding: 60px;
       overflow: auto;
+      nz-form-item{
+        margin-bottom: 50px;
+        &:last-child{
+          margin-bottom: 0;
+        }
+        .ant-input-lg{
+          height:56px;
+          padding-left: 44px;
+        }
+        .anticon{
+          font-size: 20px;
+        }
+      }
+      .forgot-password{
+        color:#B2CDFF;
+        float: right;
+        i{
+          vertical-align: middle;
+          font-size: 14px;
+        }
+      }
     }
     
     .login-form-button {
       width: 100%;
+      height:56px;
+      background-color: #2982FF;
     }
   }
 }

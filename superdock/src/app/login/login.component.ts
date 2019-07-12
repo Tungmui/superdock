@@ -23,8 +23,10 @@ export class LoginComponent implements OnInit {
         {
           client_id: API.config.client_id,
           client_secret: API.config.client_secret,
-          username: this.validateForm.controls.userName.value,
-          password: this.validateForm.controls.password.value,
+          // username: this.validateForm.controls.userName.value,
+          // password: this.validateForm.controls.password.value,
+          username: "ganghang@ganghang.com",
+          password: "647da135",
           grant_type: "password"
         }).subscribe((response: any) => {
           console.log(response);
@@ -75,8 +77,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      userName: ["ganghang@ganghang.com", [Validators.required]],
-      password: ["647da135", [Validators.required]]
+      userName: [null, [Validators.required]],
+      password: [null, [Validators.required]]
     });
   }
 }

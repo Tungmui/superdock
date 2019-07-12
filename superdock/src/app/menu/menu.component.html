@@ -1,0 +1,33 @@
+<!-- side -->
+<div [ngClass]="{'collapsed': isCollapsed}" class="menu-root">
+  <ul nz-menu [nzMode]="'inline'" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
+    <li nz-submenu>
+      <span title>
+        <i nz-icon type="appstore"></i>
+        <span>任务管理</span>
+      </span>
+      <ul>
+        <li [routerLink]="['./planView',item.id]" nz-menu-item *ngFor="let item of plans">{{item.name}}</li>
+      </ul>
+    </li>
+
+    <li nz-submenu>
+      <span title>
+        <i nz-icon type="appstore"></i>
+        <span>机场</span>
+      </span>
+      <ul>
+        <li *ngFor="let depot of depotNodes()" nz-menu-item>{{depot.name}}</li>
+      </ul>
+    </li>
+    <li nz-submenu>
+      <span title>
+        <i nz-icon type="setting"></i>
+        <span>无人机</span>
+      </span>
+      <ul>
+        <li *ngFor="let air of airNodes()" nz-menu-item>{{air.name}}</li>
+      </ul>
+    </li>
+  </ul>
+</div>

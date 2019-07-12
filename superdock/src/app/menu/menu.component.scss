@@ -1,0 +1,13 @@
+.menu-root{
+  float: left;
+  width:240px;
+  height: calc(100% - 60px);
+  background-color: #001529;
+  border-right: 1px solid #707070;
+  &.collapsed{
+    width:auto;
+  }
+  .ant-menu-dark, .ant-menu-dark .ant-menu-sub{
+    background-color: #151522;
+  }
+}
