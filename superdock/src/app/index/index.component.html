@@ -1,0 +1,82 @@
+<div class="index-page">
+  <div class="banner bg-square"><img src="assets/image/banner.png" alt=""></div>
+  <div class="container">
+    <div class="left bg-square">
+      <div class="calendar">
+        <nz-calendar nzCard (nzSelectChange)="onValueChange($event)" (nzPanelChange)="onPanelChange($event)">
+        </nz-calendar>
+      </div>
+      <div class="task-info">
+        <div class="title">任務完成情况</div>
+        <div class="flex">
+          <div><label>视频统计</label> <span>96次</span></div>
+          <div><label>720全景统计</label> <span>124次</span></div>
+          <div><label>正射图统计</label> <span>19次</span></div>
+        </div>
+        <div class="task-list">
+          <div class="task-item">
+            <div class="item-left">
+              <div class="end-date">结束时间：2017-10-11 12:00</div>
+              <div class="start-date">开始时间：2017-10-11 12:00 <span class="status">状态：运行正常</span></div>
+              <div class="action">
+                <a class="more">+更多</a>
+                <a class="edet">编辑</a>
+              </div>
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="item-left">
+              <div class="end-date">结束时间：2017-10-11 12:00</div>
+              <div class="start-date">开始时间：2017-10-11 12:00 <span class="status">状态：运行正常</span></div>
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="item-left">
+              <div class="end-date">结束时间：2017-10-11 12:00</div>
+              <div class="start-date">开始时间：2017-10-11 12:00 <span class="status">状态：运行正常</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="weather">
+        <div class="weather-title">室外天气</div>
+        <div class="weather-content">
+          <img src="assets/image/checked.png" alt="">
+          <div class="weather-info">
+            <div class="flex">
+              <div class="item">天气热</div>
+              <div class="item">多云</div>
+              <div class="item">风速1.08km/h</div>
+            </div>
+            <div class="flex">
+              <div class="item">可以起飞</div>
+              <div class="item">气温：39.9°C</div>
+              <div class="item">湿度30.2%</div>
+            </div>
+            <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+            <div id="main" style="height:400px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right bg-square">
+      <div class="right-title">今日数据</div>
+      <ul class="list">
+        <li>
+          <img src="assets/image/product3.png" alt="">
+        </li>
+        <li>
+          <img src="assets/image/product1.png" alt="">
+        </li>
+        <li>
+          <img src="assets/image/product2.png" alt="">
+        </li>
+      </ul>
+      <div class="flex">
+        <div class="list-text"><span>720全景</span></div>
+        <div class="list-text"><span>航拍照片</span></div>
+        <div class="list-text"><span>巡检视频</span></div>
+      </div>
+    </div>
+  </div>
+</div>

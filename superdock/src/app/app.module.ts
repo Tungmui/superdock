@@ -19,6 +19,8 @@ import { RouterModule } from '@angular/router';
 import { SpdDropdownComponent } from './spd-dropdown/spd-dropdown.component';
 import { NavComponent } from './nav/nav.component';
 import { MenuComponent } from './menu/menu.component';
+import { StoreService } from './store.service';
+import { IndexComponent } from './index/index.component';
 registerLocaleData(zh);
 
 // AoT requires an exported function for factories
@@ -35,6 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SpdDropdownComponent,
     NavComponent,
     MenuComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [
+    StoreService,
     { provide: NZ_I18N, useValue: zh_CN },
     { provide: HTTP_INTERCEPTORS, useClass: BasicInterceptor, multi: true }
   ],

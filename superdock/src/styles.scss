@@ -3,3 +3,20 @@
   margin:0;
   padding:0;
 }
+body{
+  min-width: 1200px;
+  color:#fff;
+}
+.bg-square{
+background: linear-gradient(to left, #07E6ED, #07E6ED) left top no-repeat, 
+ linear-gradient(to bottom, #07E6ED, #07E6ED) left top no-repeat, 
+ linear-gradient(to left, #07E6ED, #07E6ED) right top no-repeat,
+ linear-gradient(to bottom, #07E6ED, #07E6ED) right top no-repeat, 
+ linear-gradient(to left, #07E6ED, #07E6ED) left bottom no-repeat,
+ linear-gradient(to bottom, #07E6ED, #07E6ED) left bottom no-repeat,
+ linear-gradient(to left, #07E6ED, #07E6ED) right bottom no-repeat,
+ linear-gradient(to left, #07E6ED, #07E6ED) right bottom no-repeat;
+   /*设置大小*/
+ background-size: 0.15rem 1rem, 1rem 0.15rem, 0.15rem 1rem, 1rem 0.15rem;
+ padding:0.15rem;
+}

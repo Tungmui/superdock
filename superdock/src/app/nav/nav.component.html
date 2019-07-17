@@ -15,7 +15,7 @@
         <span class="user">
           <img src="assets/image/user-img.jpg" alt="">
           <span class="text">
-            <strong>张三</strong>
+            <strong>{{state.userInfo?.email}}</strong>
             <span>工程部部分主管</span>
           </span>
         </span>
@@ -23,9 +23,11 @@
       </a>
       <ul nz-menu nzSelectable>
         <li nz-menu-item>
-          <a>log out</a>
+          <a routerLink="/login">log out</a>
         </li>
       </ul>
     </nz-dropdown>
   </div>
+
+  <div class="nav-logo"><img src="assets/image/nav-logo.png" alt=""></div>
 </nav>

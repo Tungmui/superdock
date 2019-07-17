@@ -27,6 +27,7 @@ export class BasicInterceptor implements HttpInterceptor {
           if (error.url == "http://rsd.ganghang.sbnet.xyz/oauth/token") {
             alert("用户名或密码错误");
           }
+          location.href = "/";
         }
       ),
       finalize(() => {

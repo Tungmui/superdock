@@ -34,34 +34,6 @@ export class LoginComponent implements OnInit {
             localStorage.clear();
             const token = response.token_type + " " + response.access_token;
             localStorage.setItem("token", token);
-            //获取菜单栏
-            let url = API.config.suffix !== '' ? API.local["plans"] + API.config.suffix : API.local["plans"];
-            url = "/api" + url;
-            this.http.get(url).subscribe((menuData: any) => {
-              console.log(menuData);
-              localStorage.setItem("plans", JSON.stringify(menuData));
-            })
-
-            let urlNodes = API.config.suffix !== '' ? API.local["nodes"] + API.config.suffix : API.local["nodes"];
-            urlNodes = "/api" + urlNodes;
-            this.http.get(urlNodes).subscribe((menuData: any) => {
-              console.log(menuData);
-              localStorage.setItem("nodes", JSON.stringify(menuData));
-              let nodeStatus: any[] = localStorage.getItem("nodeStatus") ? JSON.parse(localStorage.getItem("nodeStatus")) : [];
-              let nodeMessage: any[] = localStorage.getItem("nodeMessage") ? JSON.parse(localStorage.getItem("nodeMessage")) : [];
-              menuData.forEach(node => {
-                const { id } = node;
-                nodeStatus.push({ id, status: 3 });
-                nodeMessage.push({ id, message: [], log: [] });
-              });
-              localStorage.setItem("nodeStatus", JSON.stringify(nodeStatus));
-              localStorage.setItem("nodeMessage", JSON.stringify(nodeMessage));
-            })
-
-            this.http.get("/api" + API.local.user).subscribe((data: any) => {
-              console.log(data);
-              localStorage.setItem("userInfo", JSON.stringify(data));
-            });
             //跳转到主页
             this.router.navigate(["home"]);
           }

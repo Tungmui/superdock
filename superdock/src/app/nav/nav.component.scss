@@ -2,7 +2,8 @@ nav{
   padding:0 5px;
   background-color: #171722;
   color:white;
-  border-bottom: 1px solid #707070;
+  // border-bottom: 1px solid #707070;
+  position: relative;
   .btn-menu{
     font-size: 30px;
     line-height: 60px;
@@ -36,7 +37,6 @@ nav{
       right:22px;
     }
     .user{
-      width:200px;
       display: block;
       img{
         display:block;
@@ -60,6 +60,27 @@ nav{
           display: inline-block;
           font-size: 12px;
         }
+      }
+    }
+  }
+  .nav-logo{
+    position: absolute;
+    bottom: -30px;
+    left:0;
+    width:100%;
+    text-align: center;
+    z-index: 10;
+    padding-right: 410px;
+    padding-left: 240px;
+    img{
+      width:600px;
+    }
+  }
+  @media screen and (max-width: 1300px) {
+    .nav-logo{
+      bottom: -20px;
+      img{
+        width:500px;
       }
     }
   }

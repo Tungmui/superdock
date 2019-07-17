@@ -1,3 +1,4 @@
+import { StoreService } from './../store.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
@@ -10,47 +11,30 @@ import API from "../../API.js";
 })
 export class MenuComponent implements OnInit {
   @Input("isCollapsed") isCollapsed: boolean;
-  nodeStatus: any[] = JSON.parse(localStorage.getItem("nodeStatus"));
-  nodes: any[] = JSON.parse(localStorage.getItem("nodes"));
-  userInfo: any = JSON.parse(localStorage.getItem("userInfo"));
-  plans: any[] = JSON.parse(localStorage.getItem("plans"));
+
   constructor(
     private translate: TranslateService,
-    private http: HttpClient
+    private http: HttpClient,
+    private store: StoreService
   ) { }
 
+  state = this.store.state;
   ngOnInit() {
+    this.initData();
   }
 
   initData() {
-    //获取菜单栏
+    //任務管理子菜单
     let url = API.config.suffix !== '' ? API.local["plans"] + API.config.suffix : API.local["plans"];
     url = "/api" + url;
     this.http.get(url).subscribe((menuData: any) => {
-      console.log(menuData);
-      localStorage.setItem("plans", JSON.stringify(menuData));
-      this.plans = menuData;
-    })
-    const StatusIcon = {
-      0: 'el-icon-success',
-      1: 'el-icon-info',
-      2: 'el-icon-error'
-    };
-
-    const StatusColor = {
-      0: '#67C23A',
-      1: '#909399',
-      2: '#F56C6C'
-    };
-    this.translate.get("header").subscribe(data => {
-      this.nodeStatus = this.nodeStatus.map(st => {
-        const node = this.nodes.find(node => st.id == node.id);
-        return {
-          icon: StatusIcon[st.status] || 'el-icon-warning',
-          color: StatusColor[st.status] || '#E6A23C',
-          text: `${data[node.type_name]} ${node.name} ${data[this.getStatusText(st.status)]}`
-        };
-      });
+      this.store.state.plans = menuData;
+    });
+    //机场/无人机子菜单
+    let urlNodes = API.config.suffix !== '' ? API.local["nodes"] + API.config.suffix : API.local["nodes"];
+    urlNodes = "/api" + urlNodes;
+    this.http.get(urlNodes).subscribe((menuData: any) => {
+      this.store.state.nodes = menuData;
     })
   }
   getStatusText(status) {
@@ -63,9 +47,9 @@ export class MenuComponent implements OnInit {
   }
 
   depotNodes() {
-    return this.nodes.filter(node => node.type_name === 'depot');
+    return this.store.state.nodes.filter(node => node.type_name === 'depot');
   }
   airNodes() {
-    return this.nodes.filter(node => node.type_name === 'air');
+    return this.store.state.nodes.filter(node => node.type_name === 'air');
   }
 }

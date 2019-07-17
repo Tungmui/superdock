@@ -1,3 +1,4 @@
+import { StoreService } from './../store.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,7 +18,8 @@ export class PlanViewComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private translate: TranslateService,
-    private http: HttpClient
+    private http: HttpClient,
+    private store: StoreService
   ) { }
 
   submitForm(): void {
@@ -26,6 +28,7 @@ export class PlanViewComponent implements OnInit {
       this.validateForm.controls[i].updateValueAndValidity();
     }
   }
+  state = this.store.state;
   plan: any;
   planLog: any;
   player: any;
@@ -83,9 +86,8 @@ export class PlanViewComponent implements OnInit {
 
   }
   drones() {
-    let nodes = JSON.parse(localStorage.getItem("nodes"));
-    nodes = nodes.find(item => item.id == this.plan.node_id);
-    this.validateForm.get("planName").setValue(nodes.name);
+    let node = this.state.nodes.find(item => item.id == this.plan.node_id);
+    this.validateForm.get("planName").setValue(node.name);
   }
   add() {
     let plan = {
