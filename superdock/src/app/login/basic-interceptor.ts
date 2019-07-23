@@ -14,7 +14,7 @@ export class BasicInterceptor implements HttpInterceptor {
     Observable<HttpEvent<any>> {
     let ok: string;
     let secureReq: any = req.clone({
-      headers: req.headers.set("Authorization", localStorage.getItem("token")), //设置请求头
+      headers: req.headers.set("Authorization", localStorage.getItem("token")||''), //设置请求头
       url: req.url.slice(0, 4) == "/api" ? "http://rsd.ganghang.sbnet.xyz" + req.url.slice(4) : req.url
     })
     console.log(secureReq);
@@ -27,7 +27,7 @@ export class BasicInterceptor implements HttpInterceptor {
           if (error.url == "http://rsd.ganghang.sbnet.xyz/oauth/token") {
             alert("用户名或密码错误");
           }
-          location.href = "/";
+          // location.href = "/";
         }
       ),
       finalize(() => {
